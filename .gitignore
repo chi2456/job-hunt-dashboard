@@ -1,0 +1,13 @@
+# 仮想環境フォルダ（必須）
+venv/
+
+# Streamlitが生成するキャッシュフォルダ
+.streamlit/
+
+# Pythonのコンパイル済みファイル
+__pycache__/
+*.pyc
+
+# OS固有の非表示ファイル（Mac, Windowsなど）
+.DS_Store
+Thumbs.db
