@@ -80,7 +80,7 @@ def add_new_activity_form():
         st.subheader("活動内容を入力")
         
         new_date = st.date_input("日付", value=datetime.now().date())
-        categories = ['企業研究', 'ES作成', '面接対策', 'ポートフォリオ', 'その他']
+        categories = ['勉強', '趣味', '睡眠', '就活', 'その他']
         new_category = st.selectbox("カテゴリ", categories)
         new_hours = st.number_input("時間 (H)", min_value=0.1, max_value=24.0, step=0.5, value=1.0)
         
@@ -110,7 +110,7 @@ def add_new_activity_form():
 
 # --- 2. メイン処理 ---
 
-st.title('🎯 就活活動時間 分析ダッシュボード')
+st.title('🎯日々の習慣可視化アプリ')
 st.caption('PandasとStreamlitを用いて、活動時間を期間別に可視化・データ管理しています。')
 
 # データ入力フォームをサイドバーに配置
@@ -123,6 +123,7 @@ df = df.sort_values('Date', ascending=False)
 # 期間設定
 today = pd.to_datetime(datetime.now().date())
 date_ranges = {
+    "今日": today,
     "直近7日": today - timedelta(days=7),
     "直近30日": today - timedelta(days=30),
     "直近5ヶ月": today - timedelta(days=5 * 30),
